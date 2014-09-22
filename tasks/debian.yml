@@ -1,0 +1,3 @@
+- name: configure apt sources
+  template: src=sources.list dest=/etc/apt/sources.list
+  notify: apt-get update

@@ -1,0 +1,7 @@
+auto {{ admin_interface }}
+iface {{ admin_interface }} inet static
+	address {{ admin_ip }}
+	netmask {{ common_admin_netmask }}
+{% if not default_ip or not default_route or add_internal_route == "yes" %}
+	post-up ip route add {{ common_default_internal_route }} via {{ common_admin_nexthop }}
+{% endif %}

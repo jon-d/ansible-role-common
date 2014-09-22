@@ -1,0 +1,46 @@
+- name: setup hostname
+  template: src=hostname dest=/etc/hostname
+  notify:
+    - set hostname in kernel
+
+- name: setup resolv.conf
+  template: src=resolv.conf dest=/etc/resolv.conf
+
+- name: setup root bash config
+  copy: src=bashrc-root dest=/root/.bashrc
+
+- include: debian.yml
+- include: interfaces.yml
+
+- name: Install basic packages
+  apt: pkg={{ item }} state=installed update_cache=yes
+  with_items:
+    - tcpdump
+    - screen
+    - tmux
+    - hdparm
+    - sysstat
+    - iftop
+    - ethtool
+    - vim
+    - links2
+    - dnsutils
+    - lsof
+    - strace
+    - sudo
+    - debconf-utils
+    - vcsh
+    - parted
+    - bash-completion
+    - debian-goodies
+
+- name: remove nfs utils
+  apt: pkg={{ item }} state=removed
+  with_items:
+    - rpcbind
+    - nfs-common
+
+- include: sudo.yml
+- include: vim.yml
+- include: sshd.yml
+

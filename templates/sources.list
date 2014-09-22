@@ -1,0 +1,3 @@
+{% for s in common_apt_sources %}
+{{ s }}
+{% endfor %}

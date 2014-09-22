@@ -1,0 +1,4 @@
+auto {{ service_interface_1 }}
+iface {{ service_interface_1 }} inet static
+	address {{ service_ip_1 }}
+	netmask {{ common_service_netmask_1 }}

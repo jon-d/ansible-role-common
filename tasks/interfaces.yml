@@ -1,0 +1,17 @@
+- name: create /etc/network/interfaces.d directory
+  file: dest=/etc/network/interfaces.d state=directory
+
+- name: push our /etc/network/interfaces generic file
+  copy: src=interfaces dest=/etc/network/interfaces
+
+- name: Configure admin interface
+  template: src=admin_interface dest=/etc/network/interfaces.d/{{ admin_interface }}
+
+- name: Configure default interface
+  template: src=default_interface dest=/etc/network/interfaces.d/{{ default_interface }}
+  when: default_ip != ''
+
+- name: Configure service interface 1
+  template: src=service_interface_1 dest=/etc/network/interfaces.d/{{ service_interface_1 }}
+  when: service_interface_1 is defined
+

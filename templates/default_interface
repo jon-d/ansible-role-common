@@ -1,0 +1,7 @@
+auto {{ default_interface }}
+iface {{ default_interface }} inet static
+	address {{ default_ip }}
+	netmask {{ common_default_netmask }}
+{% if default_route %}
+	post-up ip route add default via {{ default_route }}
+{% endif %}

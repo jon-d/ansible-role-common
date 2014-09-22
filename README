@@ -1,0 +1,36 @@
+ansible-role-common
+===================
+
+This ansible role configures a debian system to meet the expectactions of
+every roles you will find in my repositories.
+
+Especially :
+
+  - the network configuration is in /etc/network/interfaces.d/
+  - the members of the ``sudoer`` group can sudo without password
+  - ssh listen on the admin network interface only
+
+In the network environment this roles have been built, every machine is
+accessed only via a dedicated admin network. The admin network is also used
+to deploy the machines and can be used to access all the common services
+(dns, mail relay, etc.) but nothing can enter this network, so the services
+hosted on the machines listen on other interfaces, in other networks.
+
+
+Configuration
+-------------
+
+common_default_internal_route (W.X.Y.Z/0, no default)-> route to join internal resources, for specific
+routing when a machine has a default route which does not allow to reach
+internal resources.
+
+common_admin_nexthop (IP address, no default) -> nexthop for the admin network.
+common_admin_netmask (default = 255.255.255.0)
+
+common_default_netmask (default = 255.255.255.0) -> netmask for the default network.
+common_service_netmask (service = 255.255.255.0)
+
+common_domain -> default domain
+common_nameservers -> nameservers (list)
+
+common_apt_sources -> apt sources

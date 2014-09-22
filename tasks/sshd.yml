@@ -1,0 +1,6 @@
+- name: configure sshd
+  template: src=sshd_config dest=/etc/ssh/sshd_config
+  notify: reload sshd
+
+- name: install ssh_known_hosts file
+  template: src=ssh_known_hosts dest=/etc/ssh/ssh_known_hosts

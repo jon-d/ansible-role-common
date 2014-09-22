@@ -1,0 +1,12 @@
+default_route: False
+add_internal_route: False
+default_ip: ''
+ganeti_ip: ''
+service_ip_1: ''
+ssh_listen_on_default_ip: False
+ssh_listen_on_service_ip_1: False
+common_admin_netmask: 255.255.255.0
+common_default_netmask: 255.255.255.0
+common_service_netmask: 255.255.255.0
+
+

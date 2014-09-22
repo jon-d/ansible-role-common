@@ -1,0 +1,8 @@
+- name: set hostname in kernel
+  command: /bin/hostname -F /etc/hostname
+
+- name: apt-get update
+  command: apt-get update
+
+- name: reload sshd
+  service: name=ssh state=reloaded
