@@ -34,3 +34,4 @@ common_domain -> default domain
 common_nameservers -> nameservers (list)
 
 common_apt_sources -> apt sources
+common_ssh_known_hosts -> ssh server key to install in default known_hosts file.
