@@ -9,6 +9,7 @@ Especially :
   - the network configuration is in /etc/network/interfaces.d/
   - the members of the ``sudoer`` group can sudo without password
   - ssh listen on the admin network interface only
+  - the nfs utils are removed and are no longer running.
 
 In the network environment this roles have been built, every machine is
 accessed only via a dedicated admin network. The admin network is also used
@@ -34,3 +35,4 @@ common_domain -> default domain
 common_nameservers -> nameservers (list)
 
 common_apt_sources -> apt sources
+common_ssh_known_hosts -> ssh server key to install in default known_hosts file.
