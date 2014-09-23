@@ -1,7 +1,0 @@
-#- name: make vim the default editor
-#  command: update-alternatives --set editor /usr/bin/vim.basic
-#  when: default-editor != "/usr/bin/vim.basic"
-
-- name: install a nice vim config file
-  copy: src=vimrc dest=/etc/vimrc
-
