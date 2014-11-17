@@ -6,9 +6,6 @@
 - name: setup resolv.conf
   template: src=resolv.conf dest=/etc/resolv.conf
 
-- name: setup root bash config
-  copy: src=bashrc-root dest=/root/.bashrc
-
 - include: debian.yml
 - include: interfaces.yml
 
@@ -41,6 +38,5 @@
     - nfs-common
 
 - include: sudo.yml
-- include: vim.yml
 - include: sshd.yml
 
